@@ -2,25 +2,22 @@ class ResultsController < ApplicationController
     class ResultsController < ApplicationController
         before_action :set_result, only: %i[ show edit update destroy ]
     
-        # GET /students or /students.json
+       
         def index
           @results = Result.all
         end
       
-        # GET /students/1 or /students/1.json
         def show
         end
       
-        # GET /students/new
+    
         def new
           @result = Result.new
         end
       
-        # GET /students/1/edit
         def edit
         end
       
-        # POST /students or /students.json
         def create
           @result = Result.new(result_params)
       
@@ -35,7 +32,7 @@ class ResultsController < ApplicationController
           end
         end
       
-        # PATCH/PUT /students/1 or /students/1.json
+      
         def update
           respond_to do |format|
             if @result.update(result_params)
@@ -48,7 +45,7 @@ class ResultsController < ApplicationController
           end
         end
       
-        # DELETE /students/1 or /students/1.json
+       
         def destroy
           @result.destroy
       
@@ -59,12 +56,10 @@ class ResultsController < ApplicationController
         end
       
         private
-          # Use callbacks to share common setup or constraints between actions.
           def set_result
             @result = Result.find(params[:id])
           end
       
-          # Only allow a list of trusted parameters through.
           def result_params
             params.require(:result).permit(:usn, :course_code, :cee_obtained, :see_obtained, :student_id, :course_id)
           end

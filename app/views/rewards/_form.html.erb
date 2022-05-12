@@ -1,0 +1,49 @@
+<%= form_with(model: reward) do |form| %>
+  <% if reward.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(reward.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+        <% reward.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+  <div>
+  <%= form.label :usn, style: "display: block" %>
+  <%= form.text_field :usn %>
+</div>
+
+<div>
+<%= form.label :course_code, style: "display: block" %>
+<%= form.text_field :course_code %>
+</div>
+<div>
+    <%= form.label :cee_obtained, style: "display: block" %>
+    <%= form.text_field :cee_obtained %>
+  </div>
+
+  <div>
+    <%= form.label :see_obtained, style: "display: block" %>
+    <%= form.text_field :see_obatined %>
+  </div>
+
+
+
+  <div>
+    <%= form.label :course_id, style: "display: block" %>
+    <%= form.number_field :courses_id %>
+  </div>
+
+  <div>
+    <%= form.label :student_id, style: "display: block" %>
+    <%= form.number_field :students_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

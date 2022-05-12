@@ -1,4 +1,4 @@
 class Course < ApplicationRecord
-    has_many:results
+    has_many:outcomes
 
 end

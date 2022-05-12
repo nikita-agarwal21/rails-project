@@ -1,4 +1,4 @@
-class Result < ApplicationRecord
+class Outcome < ApplicationRecord
   belongs_to :student
   belongs_to :course
 end

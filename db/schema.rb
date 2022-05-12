@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_12_154212) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_12_175259) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_154212) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "outcomes", force: :cascade do |t|
+    t.string "usn"
+    t.string "course_code"
+    t.integer "cee_obtained"
+    t.integer "see_obtained"
+    t.bigint "student_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_outcomes_on_course_id"
+    t.index ["student_id"], name: "index_outcomes_on_student_id"
+  end
+
   create_table "results", force: :cascade do |t|
     t.string "usn"
     t.string "course_code"
@@ -47,6 +60,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_154212) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rewards", force: :cascade do |t|
+    t.string "usn"
+    t.string "course_code"
+    t.integer "cee_obtained"
+    t.integer "see_obatined"
+    t.bigint "students_id", null: false
+    t.bigint "courses_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["courses_id"], name: "index_rewards_on_courses_id"
+    t.index ["students_id"], name: "index_rewards_on_students_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "usn"
     t.string "name"
@@ -56,4 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_154212) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "outcomes", "courses"
+  add_foreign_key "outcomes", "students"
+  add_foreign_key "rewards", "courses", column: "courses_id"
+  add_foreign_key "rewards", "students", column: "students_id"
 end

@@ -1,0 +1,67 @@
+<p style="color: green"><%= notice %></p>
+
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+    <th>usn</th>
+    <th>course_code</th>
+
+      <th>cee_obatained</th>
+      <th>see_obtained</th>
+      <th>student id</th>
+      <th>course id</th>
+      
+     <th> </th>
+     <th> </th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+
+
+
+  <% @outcomes.each do |outcome| %>
+    <tr>
+    <td>
+    <%= outcome.usn %>
+
+
+    </td>
+    <td>
+    <%= outcome.course_code %>
+
+
+    </td>
+    <td>
+    <%= outcome.cee_obtained %>
+
+
+    </td>
+    
+    <td><%= outcome.see_obtained %></td>
+    
+    <td>
+    <%= outcome.student_id %>
+
+
+    </td>
+    <td>
+    <%= outcome.course_id %>
+
+
+    </td>
+
+    <td>
+      <%= link_to "Show this result", outcome %>
+</td>
+<td><%= link_to 'Delete',outcome, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+        
+</tr>
+<% end %>
+
+</tbody>
+</table>
+<br>
+<%= link_to "New result", new_outcome_path, class:"btn btn-secondary" %>

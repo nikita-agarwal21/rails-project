@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+
+<div class="jumbotron">
+ 
+  <p class="lead">
+  <%= @reward.usn %>  |  
+  <%= @reward.course_code %>  |  
+    
+    <%= @reward.see_obatined %>  |  
+    <%= @reward.cee_obtained %>
+   
+  </p>
+  <br/>
+  <%= link_to "Edit this result", edit_reward_path(@reward) , class:"btn btn-secondary"%> 
+  <%= link_to "Destroy this result", @reward, method: :delete , data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  
+  <%= link_to "Back to result", rewards_path , class:"btn btn-dark"%>
+
+</div>

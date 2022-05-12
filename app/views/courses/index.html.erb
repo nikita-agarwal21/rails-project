@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+
+<% @courses.each do |course| %>
+  <tr>
+  <td>
+  <%= course.course_code %>
+
+
+  </td>
+  
+  <td><%= course.course_name %></td>
+  <td><%= course.cee_max %></td>
+  <td><%= course.see_max %></td>
+  
+  
+  <td>
+    <%= link_to "Show this course", course %>
+  </td>
+  <td><%= link_to 'Delete',course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+      
+  </tr>
+<% end %>
+
+</tbody>
+</table>
+<br>
+<%= link_to "New course", new_course_path, class:"btn btn-secondary" %>

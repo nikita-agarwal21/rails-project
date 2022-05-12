@@ -1,5 +1,5 @@
 class ResultsController < ApplicationController
-    class ResultsController < ApplicationController
+    
         before_action :set_result, only: %i[ show edit update destroy ]
     
        
@@ -63,6 +63,6 @@ class ResultsController < ApplicationController
           def result_params
             params.require(:result).permit(:usn, :course_code, :cee_obtained, :see_obtained, :student_id, :course_id)
           end
-    end
+    
     
 end
